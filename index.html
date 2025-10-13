@@ -8,9 +8,44 @@
     body { font-family: system-ui, -apple-system, "Noto Sans TC", Arial, sans-serif; margin: 2rem; line-height: 1.6; }
     nav a { margin-right: 1rem; }
     .card { border: 1px solid #ddd; border-radius: 12px; padding: 1.25rem; }
+
+    /* 右上角人次計數器 */
+    .visit-counter {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 9999;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 9999px;
+      padding: 6px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .visit-counter img {
+      display: block;
+      height: 20px; /* 徽章高度 */
+    }
+
+    /* 小螢幕時別擋到內容 */
+    @media (max-width: 480px) {
+      .visit-counter { top: 8px; right: 8px; transform: scale(.95); }
+      body { margin-top: 3rem; }
+    }
   </style>
 </head>
 <body>
+  <!-- 右上角人次計數器 -->
+  <div class="visit-counter" aria-live="polite">
+    <span>瀏覽人次</span>
+    <a href="https://hits.seeyoufarm.com" aria-label="visit counter by seeyoufarm" rel="noopener" target="_blank">
+      <img id="hit-badge" alt="visits badge" src="" />
+    </a>
+  </div>
+
   <nav>
     <a href="/">Home Page</a>
     <a href="about.html">About Me</a>
@@ -26,5 +61,25 @@
       <li>Small project demonstration page</li>
     </ul>
   </div>
+
+  <script>
+    // 設定計數網址：
+    // 1) 若想「整站共用」計數：使用 window.location.origin
+    // 2) 若想「每頁各自」計數：改成 window.location.href
+    const countTarget = window.location.origin;
+
+    const params = new URLSearchParams({
+      url: countTarget,                 // 計數依據的 URL
+      count_bg: '#10B981'.replace('#','%23'), // 計數背景色（綠）
+      title_bg: '#111827'.replace('#','%23'), // 標題背景色（深灰）
+      icon: '',                         // 可加上 icon 名稱（可留空）
+      icon_color: '#E7E7E7'.replace('#','%23'),
+      title: 'visits',                  // 標題字樣
+      edge_flat: 'false'
+    });
+
+    const badge = document.getElementById('hit-badge');
+    badge.src = `https://hits.seeyoufarm.com/api/count/incr/badge.svg?${params.toString()}`;
+  </script>
 </body>
 </html>
