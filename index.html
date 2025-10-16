@@ -25,6 +25,13 @@
       .visit-counter { top: 8px; right: 8px; transform: scale(.95); }
       body { margin-top: 3rem; }
     }
+
+    /* 子清單樣式：字小且內縮 */
+    .app-notes {
+      font-size: 0.9em;      /* 或用 14px、0.875rem 皆可 */
+      margin-top: .25rem;
+      padding-left: 1.25rem; /* 往右內縮 */
+    }
   </style>
 </head>
 <body>
@@ -42,14 +49,20 @@
   <div class="card">
     <h2>My Android App (written By ChatGpt)</h2>
     <ul>
-<li>
-  Flash Light :
-  <a href="https://play.google.com/store/apps/details?id=com.spikid65.light&pcampaignid=web_share"
-     target="_blank" rel="noopener noreferrer">https://play.google.com/store/apps/details?id=com.spikid65.light&pcampaignid=web_share</a>
-</li>
-   <li>1. Press the flashlight icon once to turn it on, then press it again to turn it off.</li>
-   <li>2. The first button adjusts the flash frequency, which has four settings.</li>   
-   <li>3. The second button sets whether the flashlight automatically turns on when entering the program.</li> 
+      <li>
+        Flash Light :
+        <a href="https://play.google.com/store/apps/details?id=com.spikid65.light&pcampaignid=web_share"
+           target="_blank" rel="noopener noreferrer">
+           https://play.google.com/store/apps/details?id=com.spikid65.light&pcampaignid=web_share
+        </a>
+
+        <!-- 子清單（字體較小＋內縮） -->
+        <ol class="app-notes">
+          <li>Press the flashlight icon once to turn it on, then press it again to turn it off.</li>
+          <li>The first button adjusts the flash frequency, which has four settings.</li>
+          <li>The second button sets whether the flashlight automatically turns on when entering the app.</li>
+        </ol>
+      </li>
       <li>Volume Control</li>
       <li>TxtVoice</li>
     </ul>
