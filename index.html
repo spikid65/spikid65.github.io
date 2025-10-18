@@ -34,6 +34,17 @@
       margin-top: .25rem;
       padding-left: 1.25rem; /* 往右內縮 */
     }
+    .app-subnotes{
+  list-style: none;
+  margin: .25rem 0 0;
+  padding-left: 1rem;    /* 相對於父清單再內縮 */
+  font-size: .85em;      /* 再縮小字體 */
+  opacity: .95;          /* 可選：讓子項看起來更次要 */
+}
+.app-subnotes li{ 
+  margin: .125rem 0; 
+  break-inside: avoid;
+}
   </style>
 </head>
 <body>
@@ -76,13 +87,17 @@
         <ol class="app-notes">
           <li>1.The three icons in the first row toggle Wi-Fi, Bluetooth, and the flashlight.</li>
           <li>2.The three icons in the second row toggle Normal Volume, Vibrate, and Silent (Do Not Disturb).</li>
-          <li>3.The six sliders control the volume of six different sound channels, as described below:.</li>
+          <li>3.The six sliders control the volume of six different sound channels, as described below:.
+              <ul class="app-subnotes">
+          </ul>
            <li>  Ring: Incoming call ringtone.</li>
            <li>  Notification: Notification sounds such as app, Line, push notifications, and text message alerts.</li>
            <li>  Media: Media volume</li>
            <li>  Alarm: Alarm volume</li>
            <li>  Call: Earpiece/hands-free call volume</li>
            <li>  System: System sounds such as keystrokes, screen touch sounds, and certain system notifications.</li>
+            </ul>
+        <li>
            <li>4.The four buttons in the last column can increase the volume, but will reduce the sound quality </li>
           <li>(it is recommended to use them when the maximum volume of the Bluetooth headset is too low) </li>
         </ol>
